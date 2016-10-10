@@ -1,24 +1,25 @@
 
 public abstract class Automovil {
-	/*333333333333333333333333333333333333333333333333333333333333333333333333333333333333
-	 * estos atributos no deberian ser protected? de esa manera lo prodrian ver los hijos?
-	 * */
-	private String marca;
-	private String modelo;
-	private String patente;
-	private String color;
-	private String estado;
+
+	/*2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
+	 * preguntar de este protected static*/
+	protected static int cantDeAutos=0;
+	protected int idAuto;
+	protected String marca;
+	protected String modelo;
+	protected String patente;
+	protected String color;
+	protected String estado;
 	
-	/*222222222222222222222222222222222222222222222222222222222222222222222222
-	 * El constructor de una clase abstracta debe estar implementado de maneras diferente en c/hijo
-	 * */	
 	public Automovil(String marca, String modelo, String patente, String color) {
-		super();
 		this.marca = marca;
 		this.modelo = modelo;
 		this.patente = patente;
 		this.color = color;
 		this.estado="A la venta";
+		cantDeAutos++;
+		this.idAuto=cantDeAutos;
+		
 	}
 
 	public abstract float calcularPrecioVenta();

@@ -13,7 +13,7 @@ public class Venta {
 	
 	public Venta(String nombre, String apellido, String domicilio, Automovil automovil, float importe,
 			String formaPago) {
-		super();
+		
 		Calendar cal = Calendar.getInstance();
 		this.fecha= (Date) cal.getTime();
 		this.nombre = nombre;

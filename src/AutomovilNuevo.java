@@ -9,6 +9,7 @@ public class AutomovilNuevo extends Automovil{
 
 	public AutomovilNuevo(String marca, String modelo, String patente, String color, float precioBase,
 			float costoPatentamiento, float costoFlete) {
+		
 		super(marca, modelo, patente, color);
 		this.precioBase = precioBase;
 		this.costoPatentamiento= costoPatentamiento;

@@ -6,26 +6,20 @@ public class Controlador {
 	private List<Venta> ventas;
 	
 	public Controlador(List<Automovil> automoviles, List<Venta> ventas) {
-		super();
 		this.automoviles = automoviles;
 		this.ventas = ventas;
 	}
 	/* 11111111111111111111111111111111111111111111111111111111111111111111111111111111
-	 * creo que este metodo tiene que ser abstracto
-	 * que sea CrearAuto
-	 * dependiendo de lo que le pasan va a ser nuevo o usado
+	 * deberia ser crearAuto, pero dependiendo de los parametros que le pasan va a ser nuevo o usado
 	*/
 	public void crearAuto(String marca, String modelo, String patente, String color, float precio,
 			float costoPatente, float flete){
 		
-		Automovil nuevoAuto = buscarAutomovil(patente);
-		if(nuevoAuto==null){
-			/*44444444444444444444444444444444444444444444444444444444444444444444444444444444444444
-			 * de esta manera se crearia un nuevo auto?
-			 * */
+		AutomovilNuevo nuevoAuto = null;
+		if(buscarAutomovil(patente)!=null){
 			nuevoAuto = new AutomovilNuevo(marca, modelo, patente, color, precio, costoPatente, flete);
+			automoviles.add(nuevoAuto);
 		}
-		automoviles.add(nuevoAuto);
 	}
 	private Automovil buscarAutomovil(String patente) {
 		Automovil auto= null;
@@ -38,15 +32,12 @@ public class Controlador {
 	}
 	public void crearAuto(String marca, String modelo, String patente, String color,
 			float precioMercado, float comision){
-		Automovil nuevoAutoUsado = buscarAutomovil(patente);
-		if(nuevoAutoUsado==null){
-			/*44444444444444444444444444444444444444444444444444444444444444444444444444444444444444
-			 * de esta manera se crearia un nuevo auto?
-			 * */
-			nuevoAutoUsado= new AutomovilUsado(marca, modelo, patente, color, precioMercado, comision);
-		}
-		automoviles.add(nuevoAutoUsado);
 		
+		AutomovilUsado nuevoAutoUsado = null;
+		if(buscarAutomovil(patente)!=null){
+			nuevoAutoUsado= new AutomovilUsado(marca, modelo, patente, color, precioMercado, comision);
+			automoviles.add(nuevoAutoUsado);
+		}		
 	}
 	public void elimiarAuto(String patente){
 		Automovil auto = buscarAutomovil(patente);

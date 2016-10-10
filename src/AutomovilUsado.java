@@ -6,6 +6,7 @@ public class AutomovilUsado extends Automovil{
 	
 	public AutomovilUsado(String marca, String modelo, String patente, String color, float valormercado, 
 			float comision) {
+		
 		super(marca, modelo, patente, color);
 		this.valorMercado= valormercado;
 		this.comision = comision;
